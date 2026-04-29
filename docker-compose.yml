@@ -1,0 +1,40 @@
+services:
+  bot:
+    build:
+      context: .
+      args:
+        PYTHON_VERSION: "3.14"
+    image: epshtein-discord-bot:local
+    container_name: epshtein-bot
+
+    # Secrets stay on the host, never baked into the image.
+    env_file: .env
+
+    # Mount games.config.json read-only so you can edit and `docker compose
+    # restart bot` to pick up role-mapping changes without rebuilding.
+    volumes:
+      - ./games.config.json:/app/games.config.json:ro
+
+    # Long-running bot: respawn on crash, but stop cleanly on `compose down`.
+    restart: unless-stopped
+
+    # Hardening: read-only root + minimal caps. Discord bots only need
+    # outbound networking, no filesystem writes, no privileged syscalls.
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+    # Resource ceilings (effective in docker compose v2 standalone mode).
+    mem_limit: 256m
+    cpus: 0.5
+
+    # Bound log growth so a chatty handler can't fill the host disk.
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"

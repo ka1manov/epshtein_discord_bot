@@ -1,0 +1,6 @@
+pyproject.toml
+epshtein_discord_bot.egg-info/PKG-INFO
+epshtein_discord_bot.egg-info/SOURCES.txt
+epshtein_discord_bot.egg-info/dependency_links.txt
+epshtein_discord_bot.egg-info/requires.txt
+epshtein_discord_bot.egg-info/top_level.txt

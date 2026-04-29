@@ -1,0 +1,10 @@
+{
+  "games": [
+    { "label": "CS:GO / CS2",      "role_name": "ТрО КС ГО",     "emoji": "🔫" },
+    { "label": "World of Tanks",   "role_name": "Я в танкє",     "emoji": "🛡️" },
+    { "label": "Турбо воїни",      "role_name": "Турбо воїни",   "emoji": "⚔️" },
+    { "label": "ПТСніки",          "role_name": "ПТСніки",       "emoji": "🎮" },
+    { "label": "Імбастери",        "role_name": "Імбастери",     "emoji": "🏆" },
+    { "label": "Мафія",            "role_name": "МАФІЯ",         "emoji": "🕴️" }
+  ]
+}

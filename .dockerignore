@@ -1,0 +1,33 @@
+# Local virtual environments
+.venv/
+venv/
+env/
+
+# Python build artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Secrets — must NEVER be baked into the image. .env.example is fine.
+.env
+.env.*
+!.env.example
+
+# Repo metadata not needed at runtime
+.git/
+.gitignore
+docs/
+tests/
+skills/
+README.md
+task.md
+Dockerfile
+docker-compose.yml
+.dockerignore
